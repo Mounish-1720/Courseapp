@@ -1,9 +1,21 @@
 {
+  "name": "course-platform-api",
+  "version": "1.0.0",
+  "description": "Backend API for course platform with Snowflake and Razorpay",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vercel dev",
+    "deploy": "vercel --prod"
+  },
+
   "dependencies": {
     "cors": "^2.8.5",
     "dotenv": "^17.2.1",
     "express": "^5.1.0",
     "razorpay": "^2.9.6",
     "snowflake-sdk": "^2.1.3"
+  },
+   "engines": {
+    "node": ">=14.x"
   }
 }

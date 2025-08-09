@@ -9,18 +9,18 @@ const connection = snowflake.createConnection({
   schema: process.env.SNOWFLAKE_SCHEMA
 });
 
-connection.connect(err => {
+connection.connect((err) => {
   if (err) {
-    console.error('Snowflake connection failed: ' + err.message);
+    console.error('❌ Unable to connect to Snowflake:', err.message);
   } else {
-    console.log('Connected to Snowflake.');
+    console.log('✅ Connected to Snowflake');
   }
 });
 
-export const executeQuery = (query, binds = []) => {
+export function executeQuery(sqlText, binds = []) {
   return new Promise((resolve, reject) => {
     connection.execute({
-      sqlText: query,
+      sqlText,
       binds,
       complete: (err, stmt, rows) => {
         if (err) {
@@ -31,4 +31,4 @@ export const executeQuery = (query, binds = []) => {
       }
     });
   });
-};
+}
